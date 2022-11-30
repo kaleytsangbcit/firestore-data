@@ -24,26 +24,16 @@ export default function Home({navigation}) {
         ]);
     }
 
-  return (
-    <View>
-        <Button title='Get Data' onPress={() => GetData()} />
-        <Button title='Sign In' onPress={() => navigation.navigate("Login")} />
-        <Button title='Profile' onPress={() => navigation.navigate("Profile")} />
-        <Button title='Add User' onPress={() => navigation.navigate("Register")} />
-        <ScrollView>
-            <View>
-            {users.map(o=><View key={o.id}>
-                <Image source={{uri:o.avatar}} style={{width:100, height: 100}} />
-                <Text>{o.id} - {o.fullname}</Text>
-
-                <Button title='Edit User' onPress={() => navigation.navigate({
-                    name:"Edit",
-                    params:{id: o.id}
-                })} />
+    return (
+        <View>
+            <Button title='GetData' onPress={() => GetData()} />
+                <View>
+                {users.map(o=><View key={o.id}>
+                    <Image source={{uri:o.avatar}} style={{width:100, height: 100}} />
+                    <Text>{o.id} - {o.fullname}</Text>
+                    </View>
+                    )}
                 </View>
-                )}
-            </View>
-        </ScrollView>
-    </View>
-  );
-}
+        </View>
+      );
+    }
